@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/HDRP.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/LWRP.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/STANDARD.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/NavMesh Components.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/EnemyBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
