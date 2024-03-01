@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnemyBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyBehavior.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/HDRP.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/LWRP.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/STANDARD.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Ian_Testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Ian_Testing.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMesh Components.unitypackage.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,8 +76,7 @@
       <updated>1708652485923</updated>
       <workItem from="1708652678545" duration="1733000" />
       <workItem from="1708736849510" duration="4019000" />
-      <workItem from="1709255958028" duration="793000" />
-      <workItem from="1709256772030" duration="1959000" />
+      <workItem from="1709256964438" duration="1616000" />
     </task>
     <servers />
   </component>
