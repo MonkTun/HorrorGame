@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="" />
+    <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/HDRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/LWRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/STANDARD.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NavMesh Components.unitypackage.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +76,7 @@
       <updated>1708652485923</updated>
       <workItem from="1708652678545" duration="1733000" />
       <workItem from="1708736849510" duration="4019000" />
+      <workItem from="1709256964438" duration="1616000" />
     </task>
     <servers />
   </component>
