@@ -46,7 +46,6 @@ public class EnemyBehavior : MonoBehaviour
             }
             else
             {
-                Debug.Log("Hello world"); // It works
                 if (_coroutine == null)
                 {
                     if (_priestNavMeshAgent.remainingDistance <= 1f)
@@ -86,5 +85,15 @@ public class EnemyBehavior : MonoBehaviour
         
         return finalPosition; // Return the found position, or Vector3.zero if nothing was found
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (other.TryGetComponent(out Health health))
+            {
+                Debug.Log("Contact Detected");
+                health.Damage(100);
+            }
+        }
+    }
 }
-
