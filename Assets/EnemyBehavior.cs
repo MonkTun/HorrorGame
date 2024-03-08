@@ -5,11 +5,24 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public enum EnemyState
+    {
+        Wander,
+        Chase,
+        Attack,
+    }
+
+    public EnemyState _currentState;
+    
     NavMeshAgent _priestNavMeshAgent;
     private GameObject player;
 
     private Coroutine _coroutine;
     public float range = 10.0f;
+
+
+    private bool _hasTarget;
+    
     // public bool _IsWalking = false;
 
     // Start is called before the first frame update
@@ -25,13 +38,33 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerTracing(transform.position, 4.3f, player);
+        switch (_currentState)
+        {
+            case EnemyState.Attack:
+
+                break;
+            case EnemyState.Chase:
+                
+                break;
+            case EnemyState.Wander:
+                if (_hasTarget)
+                {
+                    FindPlayer(transform.position, 4.3f, player);
+                }
+                break;
+        }
+        
+        if (_priestNavMeshAgent.remainingDistance <= 1f)
+        {
+            _hasTarget = false;
+        }
+        
         
         // Ensure Player is found
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    void PlayerTracing(Vector3 center, float radius, GameObject player)
+    void FindPlayer(Vector3 center, float radius, GameObject player)
     {
         Collider[] hitColliders = UnityEngine.Physics.OverlapSphere(center, radius);
         foreach (var hitCollider in hitColliders)
@@ -42,31 +75,15 @@ public class EnemyBehavior : MonoBehaviour
                 if (_priestNavMeshAgent != null && player != null)
                 {
                     _priestNavMeshAgent.SetDestination(player.transform.position);
+                    _hasTarget = true;
+                    _currentState = EnemyState.Chase;
                 }
-            }
-            else
-            {
-                if (_coroutine == null)
-                {
-                    if (_priestNavMeshAgent.remainingDistance <= 1f)
-                    {
-                        _coroutine = StartCoroutine(_TestRoutine(4f, GetRandomLocation()));
-                    }
-                }
-                
             }
         }
     }
-    IEnumerator _TestRoutine(float _DurationUntilReset, Vector3 _PriestArea)
-    {
-        // Player outside of range for set amount of time
-        yield return new WaitForSeconds(_DurationUntilReset);
-                    
-        // Return to x location
-        _priestNavMeshAgent.SetDestination(_PriestArea);
+    
+    
 
-        _coroutine = null;
-    }
     
     public Vector3 GetRandomLocation()
     {
