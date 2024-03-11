@@ -5,19 +5,17 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float PlayerHealthValue { get; private set; }
-    
-    public float PriestHealth { get; private set; }
+    public float CurrentHealth { get; private set; }
+   
     public bool DeadState { get; private set; }
 
-    public float baseHealth = 100;
+    [SerializeField] private float _baseHealth = 100;
 
-    public float priestBaseHealth = 1 * 10 ^ 99;
+    [SerializeField] private bool _isPlayer;
 
     private void Start()
     {
-        PlayerHealthValue = baseHealth;
-        PriestHealth = priestBaseHealth;
+        CurrentHealth = _baseHealth;
     }
 
     public void Die()
@@ -25,20 +23,18 @@ public class Health : MonoBehaviour
         if (DeadState == false)
         {
             DeadState = true;
-            if (DeadState = true)
-            {
-                Debug.Log("You've Died");
-            }
-            //if this is part of player, gameover + game death screen shows up
-            //if this is enemy, just destroy this gameobject
+            
+            gameObject.SetActive(false);
+            if (_isPlayer) GameManager.Instance.GameOver();
         }
         
     }
-    public void Damage(float incomeDamage)
+
+    public void TakeDamage(float damage)
     {
-        PlayerHealthValue -= incomeDamage;
+        CurrentHealth -= damage;
         Debug.Log("Damage Taken");
-        if (PlayerHealthValue <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }
