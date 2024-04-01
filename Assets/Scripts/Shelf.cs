@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shelf : Interactable
 {
+	public bool IsOpen => _isOpen;
+
 	[SerializeField] private Animator _animator;
 	[SerializeField] private bool _startOpen = false;
 	bool _isOpen;
@@ -19,5 +21,18 @@ public class Shelf : Interactable
 		_isOpen = !_isOpen;
 
 		_animator.SetBool("IsOpen", _isOpen);
+	}
+
+	public void ForceClose()
+	{
+		_isOpen = false;
+		_animator.SetBool("IsOpen", false);
+		//TODO audio
+	}
+	public void ForceOpen()
+	{
+		_isOpen = true;
+		_animator.SetBool("IsOpen", true);
+		//TODO audio
 	}
 }

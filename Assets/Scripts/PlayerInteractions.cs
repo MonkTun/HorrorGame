@@ -25,21 +25,19 @@ public class PlayerInteractions : MonoBehaviour
 
     private void CheckInteratables() //TODO can't interact if it's far
     {
-        RaycastHit[] hits = Physics.RaycastAll(_cameraRoot.position, _cameraRoot.forward, _maxInteratableDistance, _interactMask);
-
-        foreach (RaycastHit hit in hits)
-        {
-            if (hit.collider.TryGetComponent(out Interactable interactable))
-            {
-                //Debug.Log(interactable.gameObject.name);
+		if (Physics.Raycast(_cameraRoot.position, _cameraRoot.forward, out RaycastHit hit, _maxInteratableDistance, _interactMask))
+		{
+			if (hit.collider.TryGetComponent(out Interactable interactable))
+			{
+				// Debug.Log(interactable.gameObject.name);
 				_interactable = interactable;
-                GameplayUI.Instance.UpdateInteract(interactable.InteractCheck());
+				GameplayUI.Instance.UpdateInteract(interactable.InteractCheck());
 
-                if (Input.GetKeyDown(KeyCode.F))
-                {
+				if (Input.GetKeyDown(KeyCode.F))
+				{
 					interactable.Interact();
 				}
 			}
-        }
-    }
+		}
+	}
 }

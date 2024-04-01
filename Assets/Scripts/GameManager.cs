@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	public bool isGameOver { get; private set; }
 
 	public Transform Player => _player.transform;
+	public bool PlayerHidden { get; private set; }
 	public int Progress => _progress;
 
 
@@ -46,5 +47,18 @@ public class GameManager : MonoBehaviour
 		_deathPanel.SetActive(true);
 		isGameOver = true;
 		Cursor.lockState = CursorLockMode.None;
+	}
+
+	public void PlayerHide(bool hide)
+	{
+		if (hide)
+		{
+			_player.gameObject.SetActive(false);
+			PlayerHidden = true;
+		} else
+		{
+			_player.gameObject.SetActive(true);
+			PlayerHidden = false;
+		}
 	}
 }

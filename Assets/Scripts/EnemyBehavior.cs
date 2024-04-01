@@ -28,6 +28,7 @@ public class EnemyBehavior : MonoBehaviour
 	[SerializeField] private float _chaseSpeed = 2;
 	[SerializeField] private float _recalculatePathAtStareCooltime = 0.5f;
 	[SerializeField] private float _stareRotationSpeed = 15;
+	[SerializeField] private float _ignoreHideRange = 5;
 
 	[Header("Audio")]
 	[SerializeField] private AudioClip _jumpScareClip;
@@ -60,6 +61,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+		if (GameManager.Instance.PlayerHidden) return;
+
         if (other.CompareTag("Player"))
         {
             if (other.TryGetComponent(out Health health))
@@ -83,6 +86,7 @@ public class EnemyBehavior : MonoBehaviour
 	{
 		switch (CurrentState)
 		{
+
 			case EnemyState.Stare:
 
 
@@ -102,6 +106,8 @@ public class EnemyBehavior : MonoBehaviour
 					}
 
 				}
+
+				//TODO if player hides while staring, force open the shelf.
 
 				// Rotate toward player so it looks like staring. Use Quaternion.Lerp for smooth rotation
 				Vector3 directionToPlayer = GameManager.Instance.Player.position - transform.position;
@@ -125,8 +131,32 @@ public class EnemyBehavior : MonoBehaviour
 					break;
 				}
 
+				if (GameManager.Instance.PlayerHidden)
+				{
+					if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) < _ignoreHideRange)
+					{
+						_navMeshAgent.SetDestination(GameManager.Instance.Player.position);
+						//Find all Shelf and open them
+						
+						if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) < 1)
+						{
+							FindObjectOfType<HideableShelf>().ForceOpen();
+						}
 
-				_navMeshAgent.SetDestination(GameManager.Instance.Player.position);
+					}
+					else
+					{
+						CurrentState = EnemyState.Wander;
+						_navMeshAgent.speed = _wanderSpeed;
+						break;
+					}
+				} 
+				else
+				{
+					_navMeshAgent.SetDestination(GameManager.Instance.Player.position);
+				}
+
+				
 
 
 				if (_navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || _navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
@@ -152,7 +182,8 @@ public class EnemyBehavior : MonoBehaviour
 
 				break;
 			case EnemyState.Wander:
-				if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) < _startChaseRange)
+				if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) < _startChaseRange 
+					&& GameManager.Instance.PlayerHidden == false)
 				{
 					if (_navMeshAgent.SetDestination(GameManager.Instance.Player.position) == true)
 					{
