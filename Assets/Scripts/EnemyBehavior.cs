@@ -11,7 +11,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         Wander,
         Chase,
-
+		Stare,
+		Done,
     }
 
     public EnemyState CurrentState;
@@ -25,24 +26,97 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float _nextDestinationMin = 0.5f;
     [SerializeField] private float _wanderSpeed = 1;
 	[SerializeField] private float _chaseSpeed = 2;
+	[SerializeField] private float _recalculatePathAtStareCooltime = 0.5f;
+	[SerializeField] private float _stareRotationSpeed = 15;
+
+	[Header("Audio")]
+	[SerializeField] private AudioClip _jumpScareClip;
+	[Header("Camera")]
+	[SerializeField] private GameObject _scareAnimation;
 
 	private NavMeshAgent _navMeshAgent;
+    private Animator _animator;
+	private AudioSource _audioSource;
     private Transform _target;
     private bool _hasTarget;
+
+	private float _lastRecalculatePathDuringStareTime;
     
+
     // MONOBEHAVIOURS
 
     void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+		_animator = GetComponent<Animator>();
+		_audioSource = GetComponent<AudioSource>();
+	}
+
+    void FixedUpdate()
+    {
+		UpdateState();
+		UpdateAnimation();
+	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (other.TryGetComponent(out Health health))
+            {
+                Debug.Log("Contact Detected");
+                health.TakeDamage(100);
+				_scareAnimation.SetActive(true);
+				_navMeshAgent.ResetPath();
+				_navMeshAgent.isStopped = true;
+				_navMeshAgent.enabled = false;
+				GetComponent<Rigidbody>().velocity = Vector2.zero;
+				CurrentState = EnemyState.Done;
+				_animator.SetTrigger("Scream");
+			}
+        }
     }
 
-    void Update()
-    {
-        switch (CurrentState)
-        {
+	// PRIVATE METHODS
 
-            case EnemyState.Chase:
+	private void UpdateState()
+	{
+		switch (CurrentState)
+		{
+			case EnemyState.Stare:
+
+
+				if (_recalculatePathAtStareCooltime + _lastRecalculatePathDuringStareTime < Time.time)
+				{
+					_lastRecalculatePathDuringStareTime = Time.time;
+
+
+					NavMeshPath path = new NavMeshPath();
+					bool pathFound = _navMeshAgent.CalculatePath(GameManager.Instance.Player.position, path);
+
+					if (pathFound && path.status == NavMeshPathStatus.PathComplete)
+					{
+						Debug.Log("found: " + pathFound + " status: " + path.status);
+						CurrentState = EnemyState.Chase;
+						break;
+					}
+
+				}
+
+				// Rotate toward player so it looks like staring. Use Quaternion.Lerp for smooth rotation
+				Vector3 directionToPlayer = GameManager.Instance.Player.position - transform.position;
+				directionToPlayer.y = 0; // This ensures the rotation only happens in the y-axis, preventing the enemy from tilting upwards or downwards
+				Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+				transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * _stareRotationSpeed);
+
+				//Rotate toward player so it looks like staring. use lerp
+
+
+
+				break;
+
+
+			case EnemyState.Chase:
 
 				if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) > _endChaseRange)
 				{
@@ -51,28 +125,63 @@ public class EnemyBehavior : MonoBehaviour
 					break;
 				}
 
-				_navMeshAgent.SetDestination(GameManager.Instance.Player.position);                
 
-				break;
-            case EnemyState.Wander:
-                if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) < _startChaseRange)
-                {
-                    CurrentState = EnemyState.Chase;
-					_navMeshAgent.speed = _chaseSpeed;
-					break;
+				_navMeshAgent.SetDestination(GameManager.Instance.Player.position);
+
+
+				if (_navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || _navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
+				{
+					CurrentState = EnemyState.Stare;
+					_navMeshAgent.ResetPath();
+
+					float random = UnityEngine.Random.Range(0, 100);
+
+					if (20 > random)
+					{
+						_animator.SetTrigger("Scream");
+					}
+					else if (random > 70)
+					{
+						_animator.SetTrigger("Looking");
+					}
+					else
+					{
+						_animator.SetTrigger("LookAway");
+					}
 				}
 
-                if (_navMeshAgent.remainingDistance < _nextDestinationMin)
-                {
-				    _navMeshAgent.SetDestination(GetRandomLocation(transform.position)); //later you can hand in position near current wander point
-                }
+				break;
+			case EnemyState.Wander:
+				if (Vector3.Distance(GameManager.Instance.Player.position, transform.position) < _startChaseRange)
+				{
+					if (_navMeshAgent.SetDestination(GameManager.Instance.Player.position) == true)
+					{
+						if (_navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
+						{
+							CurrentState = EnemyState.Chase;
+							_navMeshAgent.speed = _chaseSpeed;
+							_audioSource.PlayOneShot(_jumpScareClip);
+							break;
+						}	
+					}
+				}
+
+				if (_navMeshAgent.remainingDistance < _nextDestinationMin)
+				{
+					_navMeshAgent.SetDestination(GetRandomLocation(transform.position)); //later you can hand in position near current wander point
+				}
 
 				break;
-        }
-    }
+		}
+	}
+
+	private void UpdateAnimation()
+	{
+		_animator.SetBool("Walk", _navMeshAgent.velocity.magnitude > 0f);
+	} 
 
 
-	public Vector3 GetRandomLocation(Vector3 offset)
+	private Vector3 GetRandomLocation(Vector3 offset)
 	{
 		// Get a random direction (and distance) within a sphere, but we only use the X and Z axes for a flat, horizontal displacement
 		Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * _wanderRange;
@@ -91,15 +200,4 @@ public class EnemyBehavior : MonoBehaviour
 	}
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (other.TryGetComponent(out Health health))
-            {
-                Debug.Log("Contact Detected");
-                health.TakeDamage(100);
-            }
-        }
-    }
 }
