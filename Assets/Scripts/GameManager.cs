@@ -14,13 +14,15 @@ public class GameManager : MonoBehaviour
 	public bool PlayerHidden { get; private set; }
 	public int Progress => _progress;
 
-
+	public bool CursorLocked = true;
+	
 	// PRIVATE FIELDS
 
 	[SerializeField] private Transform _player;
 	[SerializeField] private GameObject _deathPanel;
 
 	private int _progress;
+	private bool _onDialogue;
 
 	// MONOBEHAVIOURS
 
@@ -60,5 +62,32 @@ public class GameManager : MonoBehaviour
 			_player.gameObject.SetActive(true);
 			PlayerHidden = false;
 		}
+	}
+	
+	public void StartDialogue()
+	{
+		//gameState = State.paused; //TODO
+		//PanelManage(null);
+		_onDialogue = true;
+		SetCursorState(false);
+	}
+
+	public void EndDialogue()
+	{
+		//gameState = State.playing;
+		//PanelManage(playPanel);
+		_onDialogue = false;
+		SetCursorState(true);
+	}
+	
+	private void OnApplicationFocus(bool hasFocus)
+	{
+		if (_onDialogue == false)
+			SetCursorState(CursorLocked);
+	}
+
+	private void SetCursorState(bool newState)
+	{
+		Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 	}
 }

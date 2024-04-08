@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] protected string _interactText;
 
-    public virtual void Interact()
+    public virtual void Interact(Transform interactant)
     {
 
     }

@@ -9,7 +9,7 @@ public class HideableShelf : Interactable
 
 	private bool _isHiding;
 
-	public override void Interact()
+	public override void Interact(Transform interactant)
 	{
 
 		if (_shelf.IsOpen)

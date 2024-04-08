@@ -16,7 +16,7 @@ public class Shelf : Interactable
 		_animator.SetBool("IsOpen", _isOpen);
 	}
 
-	public override void Interact()
+	public override void Interact(Transform interactant)
 	{
 		_isOpen = !_isOpen;
 
