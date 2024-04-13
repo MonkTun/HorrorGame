@@ -35,7 +35,7 @@ public class PlayerInteractions : MonoBehaviour
 
 				if (Input.GetKeyDown(KeyCode.F))
 				{
-					interactable.Interact();
+					interactable.Interact(transform);
 				}
 			}
 		}
