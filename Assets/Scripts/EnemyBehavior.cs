@@ -51,7 +51,7 @@ public class EnemyBehavior : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
 		_animator = GetComponent<Animator>();
 		_audioSource = GetComponent<AudioSource>();
-	}
+    }
 
     void FixedUpdate()
     {
