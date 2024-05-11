@@ -48,21 +48,45 @@ namespace StarterAssets
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				move = Vector2.zero;
+				return;
+			}
+
 			move = newMoveDirection;
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				look = Vector2.zero;
+				return;
+			}
+
 			look = newLookDirection;
 		}
 
 		public void JumpInput(bool newJumpState)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				jump = false;
+				return;
+			}
+
 			jump = newJumpState;
 		}
 
 		public void SprintInput(bool newSprintState)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				sprint = false;
+				return;
+			}
+
 			sprint = newSprintState;
 		}
 	}
