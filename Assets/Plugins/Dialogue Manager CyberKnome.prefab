@@ -3268,6 +3268,7 @@ MonoBehaviour:
     defaultNPCSubtitlePanel: {fileID: 8330399932798041667}
     defaultPCSubtitlePanel: {fileID: 8330399932798041667}
     allowOpenSubtitlePanelsOnStartConversation: 1
+    allowDialogueActorCustomPanels: 1
     menuPanels:
     - {fileID: 8330399933022971785}
     defaultMenuPanel: {fileID: 8330399933022971785}
@@ -3278,6 +3279,7 @@ MonoBehaviour:
     - {fileID: 8330399932062794004}
     - {fileID: 8330399932217671035}
   addEventSystemIfNeeded: 1
+  verifyPanelAssignments: 1
 --- !u!1 &8330399932644408559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,6 +3737,8 @@ MonoBehaviour:
     numpadHotkeys: 0
     format: '{0}. {1}'
   blockInputDuration: 0
+  showSelectionWhileInputBlocked: 0
+  warnOnEmptyResponseText: 0
   onContentChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4776,6 +4780,8 @@ MonoBehaviour:
     numpadHotkeys: 0
     format: '{0}. {1}'
   blockInputDuration: 0
+  showSelectionWhileInputBlocked: 0
+  warnOnEmptyResponseText: 0
   onContentChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5688,10 +5694,12 @@ MonoBehaviour:
       alternateCameraObject: {fileID: 0}
       cameraAngles: {fileID: 0}
       keepCameraPositionAtConversationEnd: 0
+      showSubtitleOnEmptyContinue: 0
       defaultSequence: Delay({{end}})
       defaultPlayerSequence: 
       defaultResponseMenuSequence: 
       entrytagFormat: 0
+      reportMissingAudioFiles: 0
       disableInternalSequencerCommands: 0
     inputSettings:
       alwaysForceResponseMenu: 1
@@ -7397,6 +7405,7 @@ MonoBehaviour:
     defaultNPCSubtitlePanel: {fileID: 8330399931833729694}
     defaultPCSubtitlePanel: {fileID: 8330399933478087598}
     allowOpenSubtitlePanelsOnStartConversation: 1
+    allowDialogueActorCustomPanels: 1
     menuPanels:
     - {fileID: 8330399932799205873}
     defaultMenuPanel: {fileID: 8330399932799205873}
@@ -7407,6 +7416,7 @@ MonoBehaviour:
     - {fileID: 8330399932796061488}
     - {fileID: 8330399931959491421}
   addEventSystemIfNeeded: 1
+  verifyPanelAssignments: 1
 --- !u!1 &8330399933553684390
 GameObject:
   m_ObjectHideFlags: 0
