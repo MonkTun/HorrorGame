@@ -17,7 +17,7 @@ namespace StarterAssets
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
-		public bool cursorLocked = true;
+		//public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -48,32 +48,46 @@ namespace StarterAssets
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				move = Vector2.zero;
+				return;
+			}
+
 			move = newMoveDirection;
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				look = Vector2.zero;
+				return;
+			}
+
 			look = newLookDirection;
 		}
 
 		public void JumpInput(bool newJumpState)
 		{
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				jump = false;
+				return;
+			}
+
 			jump = newJumpState;
 		}
 
 		public void SprintInput(bool newSprintState)
 		{
-			sprint = newSprintState;
-		}
-		
-		private void OnApplicationFocus(bool hasFocus)
-		{
-			SetCursorState(cursorLocked);
-		}
+			if (GameManager.Instance.IsPlaying == false)
+			{
+				sprint = false;
+				return;
+			}
 
-		private void SetCursorState(bool newState)
-		{
-			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+			sprint = newSprintState;
 		}
 	}
 	
