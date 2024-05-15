@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/EnemyBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyBehavior.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Ian_Testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Ian_Testing.unity" afterDir="false" />
     </list>
@@ -79,7 +80,7 @@
       <workItem from="1708736849510" duration="4019000" />
       <workItem from="1709256964438" duration="1616000" />
       <workItem from="1709341908533" duration="2802000" />
-      <workItem from="1709862468152" duration="826000" />
+      <workItem from="1709862468152" duration="873000" />
     </task>
     <servers />
   </component>
