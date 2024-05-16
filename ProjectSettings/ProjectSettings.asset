@@ -700,7 +700,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: STARTER_ASSETS_PACKAGES_CHECKED;TMP_PRESENT
+    Standalone: STARTER_ASSETS_PACKAGES_CHECKED;TMP_PRESENT;USE_NAVMESH
     WebGL: TMP_PRESENT
     iPhone: TMP_PRESENT
   additionalCompilerArguments: {}
