@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -57,6 +58,9 @@ namespace StarterAssets
 
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+
+		[SerializeField] private AudioSource _footstepAudioSource;
+		[SerializeField] private AudioClip[] _footstepAudioClips;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -160,6 +164,10 @@ namespace StarterAssets
 			}
 		}
 
+		public float FootstepWalkInterval = 0.2f;
+		private float _lastFootStepTime;
+		public float FootstepRunInterval = 0.1f;
+
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
@@ -208,6 +216,28 @@ namespace StarterAssets
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) +
 			                 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+			if (Grounded && _input.move.magnitude > 0.1f)
+			{
+				if (_input.sprint)
+				{
+					if (_lastFootStepTime + FootstepRunInterval < Time.time)
+					{
+						_lastFootStepTime = Time.time;
+
+						_footstepAudioSource.PlayOneShot(_footstepAudioClips[Random.Range(0, _footstepAudioClips.Length -1)]);
+					}
+				}
+				else
+				{
+					if (_lastFootStepTime + FootstepWalkInterval < Time.time)
+					{
+						_lastFootStepTime = Time.time;
+						
+						_footstepAudioSource.PlayOneShot(_footstepAudioClips[Random.Range(0, _footstepAudioClips.Length -1)]);
+					}
+				}
+			}
 		}
 
 		private void JumpAndGravity()
