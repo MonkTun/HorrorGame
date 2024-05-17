@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Dialogue Manager CyberKnome.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Dialogue Manager CyberKnome.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/HDRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/LWRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InstantZoomies/HorrorStarterPackFREE/Packages/STANDARD.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JaneArtWork/Halloween Free Pack/SRP upgrade package/Halloween Free Pack_HDRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JaneArtWork/Halloween Free Pack/SRP upgrade package/Halloween Free Pack_URP.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/DialogueTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DialogueTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameplayUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameplayUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +95,7 @@
       <workItem from="1715801646032" duration="52000" />
       <workItem from="1715903407516" duration="2929000" />
       <workItem from="1715908437286" duration="370000" />
+      <workItem from="1715982705246" duration="855000" />
     </task>
     <servers />
   </component>
