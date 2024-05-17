@@ -12,7 +12,9 @@ public class GameplayUI : MonoBehaviour
 	[SerializeField] private float _interactDisplayTime = 0.2f;
 	[SerializeField] private CanvasGroup _interactGroup;
 	[SerializeField] private float _fadeMultiplier = 2f;
-
+	[SerializeField] private TMP_Text _inventoryText;
+	
+	
 	private float _lastInteractiontime;
 
 
@@ -37,5 +39,10 @@ public class GameplayUI : MonoBehaviour
 				_interactGroup.alpha -= Time.deltaTime * _fadeMultiplier;
 			}
 		}
+	}
+
+	public void UpdateInventoryText(string message)
+	{
+		_inventoryText.text = message;
 	}
 }

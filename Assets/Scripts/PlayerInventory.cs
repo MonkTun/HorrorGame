@@ -24,7 +24,9 @@ public class PlayerInventory : MonoBehaviour
         {
             case Items.Key:
 
+                
                 _key++;
+                GameplayUI.Instance.UpdateInventoryText("Keys: " + _key);
                 
                 break;
         }

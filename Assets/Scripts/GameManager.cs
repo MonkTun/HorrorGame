@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	// PUBIC FIELDS
 
-    public static GameManager Instance { get; private set; }
+	public static GameManager Instance { get; private set; }
 
 	public Transform Player => _player.transform;
 	public bool PlayerHidden { get; private set; }
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
 				PauseGame();
 				_pausedPanel.SetActive(true);
-			} 
+			}
 			else
 			{
 				UnPauseGame();
@@ -87,6 +87,16 @@ public class GameManager : MonoBehaviour
 	}
 
 	// PUBLIC METHODS
+
+	public void BackToLobbyGame()
+	{
+		SystemManager.Instance.LoadScene(0);
+	}
+
+	public void RetryGame()
+	{
+		SystemManager.Instance.ReloadScene();
+	}
 
 	public void PauseGame()
 	{
