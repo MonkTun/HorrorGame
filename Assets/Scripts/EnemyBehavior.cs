@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,7 +29,8 @@ public class EnemyBehavior : MonoBehaviour
 	[SerializeField] private float _stareRotationSpeed = 15;
 	[SerializeField] private float _ignoreHideRange = 5;
 
-	[Header("Audio")]
+	[Header("Audio")] [SerializeField] private AudioSource _footstepAudioSource;
+	[SerializeField] private AudioClip[] _footstepClips;
 	[SerializeField] private AudioClip _jumpScareClip;
 	[Header("Camera")]
 	[SerializeField] private GameObject _scareAnimation;
@@ -79,7 +79,15 @@ public class EnemyBehavior : MonoBehaviour
 			}
         }
     }
+	
+    // PUBLIC
 
+    public void PlayFootStep()
+    {
+	    _footstepAudioSource.PlayOneShot(_footstepClips[Random.Range(0, _footstepClips.Length -1)]);
+    }
+    
+    
 	// PRIVATE METHODS
 
 	private void UpdateState()

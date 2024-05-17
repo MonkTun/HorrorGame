@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9c76728e-005f-4ec5-bbb9-83bde5a51b91" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HorrorGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Keisen_testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Keisen_testing.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DAssets/Cursed Priest/Prefab/Priest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DAssets/Cursed Priest/Prefab/Priest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AC_Enemy.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AC_Enemy.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JaneArtWork/Halloween Free Pack/SRP upgrade package/Halloween Free Pack_HDRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JaneArtWork/Halloween Free Pack/SRP upgrade package/Halloween Free Pack_URP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DialogueTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DialogueTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +91,7 @@
       <workItem from="1712555446095" duration="1417000" />
       <workItem from="1713575812596" duration="2814000" />
       <workItem from="1715801646032" duration="52000" />
+      <workItem from="1715903407516" duration="1031000" />
     </task>
     <servers />
   </component>

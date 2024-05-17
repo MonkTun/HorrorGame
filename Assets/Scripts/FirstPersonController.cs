@@ -138,8 +138,16 @@ namespace StarterAssets
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
 				transform.position.z);
+
+			bool beforeGrounded = Grounded;
+			
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
 				QueryTriggerInteraction.Ignore);
+
+			if (beforeGrounded == false && Grounded)
+			{
+				_footstepAudioSource.PlayOneShot(_footstepAudioClips[0]);
+			}
 		}
 
 		private void CameraRotation()
