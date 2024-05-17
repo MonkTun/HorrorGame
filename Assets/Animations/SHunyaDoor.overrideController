@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SHunyaDoor
+  m_Controller: {fileID: 9100000, guid: 1bfa7df3593b24b378d790ea0a6c2afd, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9a1273b3190ea44e38499beab71b9208, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cf3bce7947d9e744dbaf1b42c48140d0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 616788d122d3145b5b33c25689f86b7c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 04f218e4bb1d4174fb740bf31eddc323, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8f65b0e784429444fbf7aa4d1b9e954b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b81ff671d9d1c164f9d3a4ea80062def, type: 2}
