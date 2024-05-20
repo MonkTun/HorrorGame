@@ -29,9 +29,9 @@ public class EnemyBehavior : MonoBehaviour
 	[SerializeField] private float _stareRotationSpeed = 15;
 	[SerializeField] private float _ignoreHideRange = 5;
 
-	[Header("Audio")] [SerializeField] private AudioSource _footstepAudioSource;
+	[Header("Audio")] [SerializeField] private AudioSource _footstepAudioSource, _jumpScareAmbientAudioSource;
 	[SerializeField] private AudioClip[] _footstepClips;
-	[SerializeField] private AudioClip _jumpScareClip;
+	[SerializeField] private AudioClip _jumpScareClip, jumpScareClip2;
 	[Header("Camera")]
 	[SerializeField] private GameObject _scareAnimation;
 	[Header("Roaming")]
@@ -78,6 +78,7 @@ public class EnemyBehavior : MonoBehaviour
 				GetComponent<Rigidbody>().velocity = Vector2.zero;
 				CurrentState = EnemyState.Done;
 				_animator.SetTrigger("Scream");
+				Invoke("PlayAudioScare", 1);
 			}
         }
     }
@@ -88,7 +89,11 @@ public class EnemyBehavior : MonoBehaviour
     {
 	    _footstepAudioSource.PlayOneShot(_footstepClips[Random.Range(0, _footstepClips.Length -1)]);
     }
-    
+
+    public void PlayAudioScare()
+    {
+	    //_audioSource.PlayOneShot(jumpScareClip2, 1f, 0.5f)
+    }
     
 	// PRIVATE METHODS
 
@@ -138,6 +143,7 @@ public class EnemyBehavior : MonoBehaviour
 				{
 					CurrentState = EnemyState.Wander;
 					_navMeshAgent.speed = _wanderSpeed;
+					_jumpScareAmbientAudioSource.Stop();
 					break;
 				}
 
@@ -158,6 +164,7 @@ public class EnemyBehavior : MonoBehaviour
 					{
 						CurrentState = EnemyState.Wander;
 						_navMeshAgent.speed = _wanderSpeed;
+						_jumpScareAmbientAudioSource.Stop();
 						break;
 					}
 				} 
@@ -217,6 +224,7 @@ public class EnemyBehavior : MonoBehaviour
 							CurrentState = EnemyState.Chase;
 							_navMeshAgent.speed = _chaseSpeed;
 							_audioSource.PlayOneShot(_jumpScareClip);
+							_jumpScareAmbientAudioSource.Play();
 							break;
 						}	
 					}

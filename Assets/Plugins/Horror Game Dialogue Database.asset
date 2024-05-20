@@ -1024,7 +1024,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The metal door needs key. I've hidden it in either the dining hall
+        value: The metal door needs a key. I've hidden it in either the dining hall
           or...
         type: 0
         typeString: 

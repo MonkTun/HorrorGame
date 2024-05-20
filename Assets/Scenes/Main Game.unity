@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6182,8 +6182,10 @@ MonoBehaviour:
   _stareRotationSpeed: 15
   _ignoreHideRange: 5
   _footstepAudioSource: {fileID: 0}
+  _jumpScareAmbientAudioSource: {fileID: 0}
   _footstepClips: []
   _jumpScareClip: {fileID: 0}
+  jumpScareClip2: {fileID: 0}
   _scareAnimation: {fileID: 0}
   _roamingZones: []
 --- !u!195 &357773255
@@ -28165,18 +28167,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 526516439, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
-      propertyPath: _endChaseRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 526516439, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
-      propertyPath: _startChaseRange
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 526516439, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
-      propertyPath: _roamingZones.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 526516439, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
       propertyPath: _roamingZones.Array.data[0]
       value: 
       objectReference: {fileID: 555512849}
@@ -28192,18 +28182,6 @@ PrefabInstance:
       propertyPath: _roamingZones.Array.data[3]
       value: 
       objectReference: {fileID: 1396981421}
-    - target: {fileID: 526516439, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
-      propertyPath: _roamingZones.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 526516443, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
-      propertyPath: m_Height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 526516443, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
-      propertyPath: m_Radius
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 780761152700154019, guid: 6924745a509f7b746bc74f3d4548b1aa,
         type: 3}
       propertyPath: m_RootOrder
@@ -28263,11 +28241,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Priest
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363578991983522480, guid: 6924745a509f7b746bc74f3d4548b1aa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6924745a509f7b746bc74f3d4548b1aa, type: 3}
