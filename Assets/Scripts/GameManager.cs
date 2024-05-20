@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private GameObject _deathPanel;
 	[SerializeField] private GameObject _pausedPanel;
 
+	[SerializeField] private GameObject _keyPrefab;
+	[SerializeField] private Transform[] _keyLocations1, _keyLocations2;
+
 	private int _progress;
 
 	// MONOBEHAVIOURS
@@ -57,6 +60,8 @@ public class GameManager : MonoBehaviour
 		GameState = State.playing;
 
 		SetCursorState(true);
+
+		Instantiate(_keyPrefab, _keyLocations1[Random.Range(0, _keyLocations1.Length)].position, Quaternion.identity);
 	}
 
 	private void Update()

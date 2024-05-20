@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class EventTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private bool _playMusic;
+	[SerializeField] private AudioSource _audioSource;
+	//[SerializeField] private AudioClip _clip;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private bool isPlayed;
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (isPlayed) return;
+
+		if (other.gameObject.CompareTag("Player"))
+		{
+			isPlayed = true;
+
+			if (_playMusic)
+			{
+				_audioSource.Play();
+
+			}
+		}
+	}
 }

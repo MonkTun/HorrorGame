@@ -8,19 +8,33 @@ public class Door : Interactable
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _unlockClip, _lockedClip, _openClip, _closeClip;
-    
+
+    public bool IsLocked => _locked;
+    public bool IsOpen => _isOpen;
+
     private bool _locked;
 
     private bool _isOpen;
+
+    private bool _isBroken;
     
     private void Awake()
     {
         _locked = _startLocked;
         _isOpen = false;
     }
+
+    public void ForceOpen()
+    {
+        Destroy(this, 2); //break;
+        _isBroken = true;
+		_animator.SetTrigger("Opens");
+		_audioSource.PlayOneShot(_openClip);
+	}
     
     public override void Interact(Transform interactant)
     {
+        if (_isBroken) return;
 
         if (_locked)
         {

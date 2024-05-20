@@ -169,6 +169,8 @@ public class EnemyBehavior : MonoBehaviour
 
 				if (_navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || _navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
 				{
+					print("ANGRY");
+
 					CurrentState = EnemyState.Stare;
 					_navMeshAgent.ResetPath();
 
@@ -185,6 +187,19 @@ public class EnemyBehavior : MonoBehaviour
 					else
 					{
 						_animator.SetTrigger("LookAway");
+					}
+
+					Collider[] cols = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Interaction"));
+
+					foreach (Collider col in cols)
+					{
+						if (col.TryGetComponent(out Door door))
+						{
+							if (door.IsOpen == false && door.IsLocked == false)
+							{
+								door.ForceOpen();
+							}
+						}
 					}
 				}
 
