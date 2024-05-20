@@ -21,7 +21,7 @@ public class SystemManager : MonoBehaviour
         }
     }
 
-    public void LoadScene(int index)
+	public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
     }

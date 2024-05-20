@@ -5,7 +5,8 @@ using UnityEngine;
 public class Door : Interactable
 {
     [SerializeField] private bool _startLocked = false;
-    [SerializeField] private Animator _animator;
+	[SerializeField] private bool _startOpened = false;
+	[SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _unlockClip, _lockedClip, _openClip, _closeClip;
 
@@ -24,7 +25,15 @@ public class Door : Interactable
         _isOpen = false;
     }
 
-    public void ForceOpen()
+	private void Start()
+	{
+		if (_startOpened)
+        {
+            ForceOpen();
+		}
+	}
+
+	public void ForceOpen()
     {
         Destroy(this, 2); //break;
         _isBroken = true;

@@ -10,13 +10,13 @@ public class MenuManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	private void Update()
+	{
+        if (Input.anyKey) LoadGame();
+	}
 
-    public void LoadGame()
+	public void LoadGame()
     {
         SystemManager.Instance.LoadScene(1);
     }

@@ -34,6 +34,8 @@ public class EnemyBehavior : MonoBehaviour
 	[SerializeField] private AudioClip _jumpScareClip;
 	[Header("Camera")]
 	[SerializeField] private GameObject _scareAnimation;
+	[Header("Roaming")]
+	[SerializeField] private Transform[] _roamingZones;
 
 	private NavMeshAgent _navMeshAgent;
     private Animator _animator;
@@ -222,7 +224,7 @@ public class EnemyBehavior : MonoBehaviour
 
 				if (_navMeshAgent.remainingDistance < _nextDestinationMin)
 				{
-					_navMeshAgent.SetDestination(GetRandomLocation(transform.position)); //later you can hand in position near current wander point
+					_navMeshAgent.SetDestination(GetRandomLocation(_roamingZones[Random.Range(0, _roamingZones.Length)].position)); //later you can hand in position near current wander point
 				}
 
 				break;
