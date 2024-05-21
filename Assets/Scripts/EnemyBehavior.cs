@@ -78,8 +78,8 @@ public class EnemyBehavior : MonoBehaviour
 				GetComponent<Rigidbody>().velocity = Vector2.zero;
 				CurrentState = EnemyState.Done;
 				_animator.SetTrigger("Scream");
-				Invoke("PlayAudioScare", 1);
-			}
+				PlayAudioScare(); //Invoke("PlayAudioScare", 0.2f);
+            }
         }
     }
 	
@@ -92,7 +92,8 @@ public class EnemyBehavior : MonoBehaviour
 
     public void PlayAudioScare()
     {
-	    //_audioSource.PlayOneShot(jumpScareClip2, 1f, 0.5f)
+	    _audioSource.pitch = 0.5f;
+	    _audioSource.PlayOneShot(jumpScareClip2, 1f);
     }
     
 	// PRIVATE METHODS

@@ -1888,11 +1888,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 0
   _startChaseRange: 15
-  _endChaseRange: 20
+  _endChaseRange: 25
   _wanderRange: 10
   _nextDestinationMin: 0.5
-  _wanderSpeed: 1.5
-  _chaseSpeed: 2.5
+  _wanderSpeed: 2
+  _chaseSpeed: 3
   _recalculatePathAtStareCooltime: 0.4
   _stareRotationSpeed: 15
   _ignoreHideRange: 8
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a2ec3f2db5bcb4025a8de9402bb357c6, type: 3}
   - {fileID: 8300000, guid: 4ced01739da55484faa6c8dc7fba62a5, type: 3}
   _jumpScareClip: {fileID: 8300000, guid: 5942c81fcc6c6774984d8e1561aa4390, type: 3}
-  jumpScareClip2: {fileID: 0}
+  jumpScareClip2: {fileID: 8300000, guid: da7bed5d3fdf4436bb2cb3595a81ea4e, type: 3}
   _scareAnimation: {fileID: 1300405666}
   _roamingZones:
   - {fileID: 0}
@@ -2382,7 +2382,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 6881d62b5747248c8b9b2542a285af78, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.5
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
