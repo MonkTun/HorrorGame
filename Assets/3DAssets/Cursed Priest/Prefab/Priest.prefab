@@ -1908,7 +1908,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a2ec3f2db5bcb4025a8de9402bb357c6, type: 3}
   - {fileID: 8300000, guid: 4ced01739da55484faa6c8dc7fba62a5, type: 3}
   _jumpScareClip: {fileID: 8300000, guid: 5942c81fcc6c6774984d8e1561aa4390, type: 3}
-  jumpScareClip2: {fileID: 8300000, guid: da7bed5d3fdf4436bb2cb3595a81ea4e, type: 3}
+  jumpScareClip2: {fileID: 0}
   _scareAnimation: {fileID: 1300405666}
   _roamingZones:
   - {fileID: 0}

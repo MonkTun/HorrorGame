@@ -2252,6 +2252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playMusic: 1
   _nextScene: 0
+  _endGame: 0
   _audioSource: {fileID: 102784321}
   _jumpScareObj: {fileID: 751758963}
 --- !u!1001 &108418865
@@ -42236,7 +42237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playMusic: 0
-  _nextScene: 1
+  _nextScene: 0
+  _endGame: 1
   _audioSource: {fileID: 1885099951}
   _jumpScareObj: {fileID: 1462294114}
 --- !u!65 &1885099953

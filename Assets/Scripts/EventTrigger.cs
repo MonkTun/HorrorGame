@@ -6,6 +6,7 @@ public class EventTrigger : MonoBehaviour
 {
 	[SerializeField] private bool _playMusic;
 	[SerializeField] private bool _nextScene;
+	[SerializeField] private bool _endGame;
 	[SerializeField] private AudioSource _audioSource;
 	[SerializeField] private GameObject _jumpScareObj;
 	//[SerializeField] private AudioClip _clip;
@@ -20,6 +21,7 @@ public class EventTrigger : MonoBehaviour
 		if (other.gameObject.CompareTag("Player"))
 		{
 			if (_nextScene) SystemManager.Instance.LoadScene(2);	
+			if (_endGame) SystemManager.Instance.LoadScene(3);	
 
 			isPlayed = true;
 
