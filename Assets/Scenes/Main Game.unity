@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: ca7243a21a006474e87877d9bb3a7c9b, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &7500972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,6 +1724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playMusic: 1
   _nextScene: 0
+  _endGame: 0
   _audioSource: {fileID: 102784321}
   _jumpScareObj: {fileID: 0}
 --- !u!1001 &108418865
@@ -4868,6 +4869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playMusic: 1
   _nextScene: 0
+  _endGame: 0
   _audioSource: {fileID: 284145645}
   _jumpScareObj: {fileID: 0}
 --- !u!65 &284145647
@@ -6990,6 +6992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playMusic: 0
   _nextScene: 1
+  _endGame: 0
   _audioSource: {fileID: 433338048}
   _jumpScareObj: {fileID: 0}
 --- !u!65 &433338050
@@ -30804,6 +30807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playMusic: 1
   _nextScene: 0
+  _endGame: 0
   _audioSource: {fileID: 1921304786}
   _jumpScareObj: {fileID: 0}
 --- !u!65 &1921304788
